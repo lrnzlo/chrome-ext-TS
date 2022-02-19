@@ -1,0 +1,46 @@
+{
+  // https://developer.chrome.com/docs/extensions/mv3/manifest/
+  "name": "Typescript Chrome Extension",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "description": "A Typescript chrome extensions!",
+  "icons": {
+    "16": "assets/icon16.png",
+    "48": "assets/icon48.png",
+    "128": "assets/icon128.png"
+  },
+  "action": {
+    "default_title": "Typescript Chrome Extension",
+    "default_icons": [
+      "assets/icon16.png"
+    ]
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content-script.js"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "*.html"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+  "permissions": [
+    "tabs"
+  ],
+  "content_security_policy": { script}
+}
